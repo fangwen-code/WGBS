@@ -3,3 +3,4 @@ A workflow of WGBS, including Fastqc, Trim_galore, Bismark. This wdl workflow ru
 
 Demo directory contains all inputs and results for testing sample pearTest.
 
+* DNAm.target.bed: just a demo file for extracting target region, you could replace your real data based on requirements.
