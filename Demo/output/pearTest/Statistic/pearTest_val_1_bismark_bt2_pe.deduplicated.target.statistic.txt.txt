@@ -1,0 +1,1 @@
+Sample	Mapping Ratio	On-target coverage (%)	On-target average depth (x)	On-target 1x	On-target 5x	On-target 10x	On-target 30x

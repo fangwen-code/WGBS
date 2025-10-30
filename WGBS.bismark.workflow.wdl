@@ -7,6 +7,7 @@ workflow_WGBS
         File raw_fq1
         File raw_fq2
         File target_bed
+        File genome_dir
         String output_dir
 
         # options
@@ -53,6 +54,7 @@ workflow_WGBS
             filter_fq1          = preprocess.filter_fq1,
             filter_fq2          = preprocess.filter_fq2,
             bowtie2_dir         = bowtie2_dir,
+            genome_dir          = genome_dir,
             bismark_param       = ${bismark_param},
             out_dir             = "${output_dir}/${sample}/Bismark",
             cpu                 = 1,
@@ -181,6 +183,7 @@ task bismark_cpg {
         Int map_eff = 30 
         String bismark_param
         File bowtie2_dir
+        File genome_dir
         String out_dir
 
         # Runtime environment setting
@@ -195,9 +198,9 @@ task bismark_cpg {
         # After bismark_genome_preparation construct the index, it could be used for further analysis. 
         # ~{bowtie2_dir}: define the bowtie2 install directory with yourself
 
-        bismark_genome_preparation --path_to_aligner ~{bowtie2_dir} --verbose ~{out_dir}/genome 2>~{out_dir}/genome/~{sample}.bismark_genome_preparation.log
+        bismark_genome_preparation --path_to_aligner ~{bowtie2_dir} --verbose ~{genome_dir} 2>~{out_dir}/genome/~{sample}.bismark_genome_preparation.log
 
-        bismark ~{bismark_param} --genome_folder ~{out_dir}/genome -1 ~{filter_fq1} -2 ~{filter_fq2} --output_dir ~{out_dir} --temp_dir ~{out_dir}
+        bismark ~{bismark_param} --genome_folder ~{genome_dir} -1 ~{filter_fq1} -2 ~{filter_fq2} --output_dir ~{out_dir} --temp_dir ~{out_dir}
         
         grep "Mapping efficiency" ~{out_dir}/~{sample}_val_1_bismark_bt2_PE_report.txt| sed 's/\%//g'|awk '{if($NF < '${map_eff}') {print "Mapping efficiency < '${map_eff}'%, it suggest to adjust the '"-L & -N"' option of bowtie2 and aligned again";exit 0;} else {}}'
 

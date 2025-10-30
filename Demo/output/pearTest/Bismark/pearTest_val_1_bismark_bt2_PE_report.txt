@@ -1,0 +1,40 @@
+Bismark report for: /hwfssz5/ST_BIOINTEL/P18Z10200N0374/wenfang/Pipeline/DNAm/workflow/testResult/Trim_galore/pearTest/pearTest_val_1.fq.gz and /hwfssz5/ST_BIOINTEL/P18Z10200N0374/wenfang/Pipeline/DNAm/workflow/testResult/Trim_galore/pearTest/pearTest_val_2.fq.gz (version: v0.24.2)
+Bismark was run with Bowtie 2 against the bisulfite genome of /hwfssz5/ST_BIOINTEL/P18Z10200N0374/wenfang/Software/Bismark-master/test_files/ with the specified options: -q -N 1 -L 32 --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Option '--non_directional' specified: alignments to all strands were being performed (OT, OB, CTOT, CTOB)
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	5000
+Number of paired-end alignments with a unique best hit:	4619
+Mapping efficiency:	92.4% 
+Sequence pairs with no alignments under any condition:	0
+Sequence pairs did not map uniquely:	381
+Sequence pairs which were discarded because genomic sequence could not be extracted:	0
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2323	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2296	((converted) bottom strand)
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	233743
+
+Total methylated C's in CpG context:	52974
+Total methylated C's in CHG context:	1142
+Total methylated C's in CHH context:	2055
+Total methylated C's in Unknown context:	0
+
+Total unmethylated C's in CpG context:	15889
+Total unmethylated C's in CHG context:	57095
+Total unmethylated C's in CHH context:	104588
+Total unmethylated C's in Unknown context:	0
+
+C methylated in CpG context:	76.9%
+C methylated in CHG context:	2.0%
+C methylated in CHH context:	1.9%
+Can't determine percentage of methylated Cs in Unknown context (CN or CHN) if value was 0
+
+
+Bismark completed in 0d 0h 0m 18s
